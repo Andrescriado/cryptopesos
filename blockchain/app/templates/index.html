@@ -1,102 +1,229 @@
-<!-- extend base layout -->
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-	<br>
+<head>
 
-	<center>
-	<form action="/submit" id="textform" method="post">
-	    <textarea name="content" rows="4" cols="50" placeholder="Just write whatever you want to..."></textarea>
-	    <br>
-	    <input type="text" name="author" placeholder="Your name">
-	    <input type="submit" value="Post">
-	</form>
-	</center>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-	<br>
+  <title>CryptoPesos</title>
 
-	<a href="{{node_address}}/mine" target="_blank"><button>Request to mine</button></a>
-	<a href="/"><button>Resync</button></a>
+  <!-- Font Awesome Icons -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-	<div style="margin: 20px;">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
-    {% for post in posts %}
-    <div class="post_box">
-	   <div class="post_box-header">
-	      <div class="post_box-options"><button class="option-btn">Reply</button></div>
-	      <div style="background: rgb(0, 97, 146) none repeat scroll 0% 0%; box-shadow: rgb(0, 97, 146) 0px 0px 0px 2px;" class="post_box-avatar">{{post.author[0]}}</div>
-	      <div class="name-header">{{post.author}}</div>
-	      <div class="post_box-subtitle"> Posted at <i>{{readable_time(post.timestamp)}}</i></div>
-	   </div>
-	   <div>
-	      <div class="post_box-body">
-	         <p>{{post.content}}</p>
-	      </div>
-	   </div>
-	</div>
-	{% endfor %}
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-	<style>
-		.post_box {
-		    background: #fff;
-		    padding: 12px 0px 0px 12px;
-		    margin-top: 0px;
-		    margin-bottom: 8px;
-		    border-top: 1px solid #f0f0f0;
-		}
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="css/creative.min.css" rel="stylesheet">
 
-		.post_box-header {
-		    padding-bottom: 12px;
-		}
 
-		.post_box-avatar {
-		    width: 38px;
-		    height: 38px;
-		    border-radius: 50%;
-		    display: flex;
-		    justify-content: center;
-		    align-items: center;
-		    color: white;
-		    font-size: 22px;
-		    float: left;
-		    margin-right: 16px;
-		    border: 1px solid #fff;
-		    box-shadow: 0px 0px 0px 2px #f00;
-		}
+</head>
 
-		.post_box-avatar::after {
-		    content:"";
-		    display:block;
-		}
+<body id="page-top">
 
-		.post_box-name {
-		    font-weight: bold;
-		}
-
-		.post_box-subtitle {
-		    color: #777;
-		}
-
-		.post_box-body {
-		    margin-top: 16px;
-		    margin-bottom: 8px;
-		}
-
-		.post_box-options {
-		    float: right;
-		}
-		.option-btn {
-		    background: #f8f8f8;
-		    border: none;
-		    color: #2c3e50;
-		    padding: 7px;
-		    cursor: pointer;
-		    font-size: 14px;
-		    margin-left: 2px;
-		    margin-right: 2px;
-		    outline: none;
-		    height: 42px;
-		}
-	</style>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">CryptoPesos</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Quienes Somos?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Transferir</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Tu Cuenta</a>
+          </li>
+        </ul>
+      </div>
     </div>
-{% endblock %}
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <h1 class="text-uppercase text-white font-weight-bold">Transferencia y Pagos Simplificados</h1>
+          <hr class="divider my-4">
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5">Con CryptoPesos transfiere y realiza pagos de forma rapida, sencilla y transparente en todo Uruguay</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Continua Leyendo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="page-section bg-primary" id="about">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="text-white mt-0">Simplificamos tu economia</h2>
+          <hr class="divider light my-4">
+          <p class="text-white-50 mb-4">CryptoPesos tiene todo lo que necesitas para mejorar la velociadad, transparencia y operabilidad de tus transacciones! Nuestra plataforma trabaja las 24hrs del dia, 7 dias a la semana, los 365 dias del ano.</p>
+          <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Comienza a operar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0">Transfiere dinero</h2>
+      <hr class="divider my-10">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+            <form action="/submit" id="textform" method="post">
+              <textarea name="content" rows="4" cols="50" placeholder="monto a transferir..."></textarea>
+              <br>
+              <input type="text" name="author" placeholder="Tu Nombre">
+              <input type="submit" value="Enviar">
+          </form>
+          <a href="{{node_address}}/mine" target="_blank"><button>Request to mine</button></a>
+	        <a href="/"><button>Resync</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Categoria
+              </div>
+              <div class="project-name">
+                Articulo #1
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Categoria
+              </div>
+              <div class="project-name">
+                Articulo #2
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Categoria
+              </div>
+              <div class="project-name">
+                Articulo #3
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Categoria
+              </div>
+              <div class="project-name">
+                Articulo #4
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Categoria
+              </div>
+              <div class="project-name">
+                Articulo #5
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
+            <div class="portfolio-box-caption p-3">
+              <div class="project-category text-white-50">
+                Categoria
+              </div>
+              <div class="project-name">
+                Articulo #6
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="page-section" id="contact">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">Aca habria que meteter el dashboard</h2>
+          <hr class="divider my-4">
+          <p class="text-muted mb-5">o pasar todo a otra pagina</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light py-5">
+    <div class="container">
+      <div class="small text-center text-muted">Copyright &copy; 2019 - 5 Bit Uruguay</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
+
+</body>
+
+</html>
