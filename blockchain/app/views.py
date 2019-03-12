@@ -36,10 +36,10 @@ def fetch_posts():
 
 @app.route('/')
 def index():
-    #fetch_posts()
+    fetch_posts()
     return render_template('index.html',
                            title='YourNet: Decentralized '
-                              'content sharing',
+                                 'content sharing',
                            posts=posts,
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
@@ -69,9 +69,6 @@ def submit_textarea():
 
     return redirect('/')
 
-#prueba para ver si levanta el css y js
-
-#@app.route('/vendor/fontawesome-free/css/all.min.css')
 
 def timestamp_to_string(epoch_time):
     return datetime.datetime.fromtimestamp(epoch_time).strftime('%H:%M')
