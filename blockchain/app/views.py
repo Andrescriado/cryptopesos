@@ -37,12 +37,12 @@ def fetch_posts():
 @app.route('/')
 def index():
     #fetch_posts()
-    return render_template('index.html')#,
-  #                         title='YourNet: Decentralized '
- #                             'content sharing',
-  #                         posts=posts,
-   #                        node_address=CONNECTED_NODE_ADDRESS,
-    #                       readable_time=timestamp_to_string)
+    return render_template('index.html',
+                           title='YourNet: Decentralized '
+                              'content sharing',
+                           posts=posts,
+                           node_address=CONNECTED_NODE_ADDRESS,
+                           readable_time=timestamp_to_string)
 
 
 @app.route('/submit', methods=['POST'])
@@ -52,10 +52,12 @@ def submit_textarea():
     """
     post_content = request.form["content"]
     author = request.form["author"]
+    receiver = request.form["receiver"] #new
 
     post_object = {
         'author': author,
         'content': post_content,
+        'receiver': receiver, #new
     }
 
     # Submit a transaction

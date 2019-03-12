@@ -94,12 +94,13 @@
           <div class="mt-5">
             <i class="fas fa-4x fa-gem text-primary mb-4"></i>
             <form action="/submit" id="textform" method="post">
-              <textarea name="content" rows="4" cols="50" placeholder="monto a transferir..."></textarea>
+              <textarea name="content" rows="2" cols="50" placeholder="Ingrese el monto a transferir..."></textarea>
               <br>
               <input type="text" name="author" placeholder="Tu Nombre">
+              <input type="text" name="receiver" placeholder="Destinatario"> <!-- new -->
               <input type="submit" value="Enviar">
           </form>
-          <a href="{{node_address}}/mine" target="_blank"><button>Request to mine</button></a>
+          <a href="http://localhost:8000/mine" target="_blank"><button>Request to mine</button></a> <!-- modificado el link porque no funcionaba -->
 	        <a href="/"><button>Resync</button></a>
           </div>
         </div>
