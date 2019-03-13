@@ -10759,7 +10759,7 @@ header.masthead h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-
+visibility: hidden
 }
 
 .popup {
@@ -10814,4 +10814,3 @@ header.masthead h1 {
   transition: .3s ease all;
 
 }
-
