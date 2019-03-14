@@ -44,7 +44,7 @@
               <a class="nav-link js-scroll-trigger" href="#services">Transferir</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Tu Cuenta</a>
+              <a class="nav-link js-scroll-trigger" onclick="return popup(this, 'notes')" href="/credit">Tu Cuenta</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#portfolio">Blog</a>
@@ -70,6 +70,18 @@
       </div>
     </header>
   
+    <!--Test Pop up-->
+    <SCRIPT TYPE="text/javascript">
+      function popup(mylink, windowname) { 
+        if (! window.focus)return true;
+        var href;
+        if (typeof(mylink) == 'string') href="/credit";
+        else href=mylink.href; 
+        window.open(href, windowname, 'width=710,height=600,scrollbars=yes'); 
+        return false; 
+      }
+    </SCRIPT>
+
     <!-- About Section -->
     <section class="page-section bg-primary" id="about">
       <div class="container">
