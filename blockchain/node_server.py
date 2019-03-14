@@ -277,10 +277,6 @@ def verify_and_add_block():
 def get_pending_tx():
     return json.dumps(blockchain.unconfirmed_transactions)
 
-@app.route('/credit')
-def credit():
-    return json.dumps(blockchain.unconfirmed_transactions)
-
 
 def consensus():
     """
