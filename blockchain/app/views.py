@@ -44,6 +44,11 @@ def index():
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
 
+@app.route('/credit')
+def credit():
+    fetch_posts()
+    return render_template('/credit.html')
+
 
 @app.route('/submit', methods=['POST'])
 def submit_textarea():

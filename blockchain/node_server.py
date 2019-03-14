@@ -185,7 +185,7 @@ def get_chain():
 def mine_unconfirmed_transactions():
     result = blockchain.mine()
     if not result:
-        return "No transactions to mine"
+        return "No hay transacciones para minar."
     return "Block #{} is mined.".format(result)
 
 
@@ -275,6 +275,10 @@ def verify_and_add_block():
 # endpoint to query unconfirmed transactions
 @app.route('/pending_tx')
 def get_pending_tx():
+    return json.dumps(blockchain.unconfirmed_transactions)
+
+@app.route('/credit')
+def credit():
     return json.dumps(blockchain.unconfirmed_transactions)
 
 
