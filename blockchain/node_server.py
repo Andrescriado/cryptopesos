@@ -185,7 +185,7 @@ def get_chain():
 def mine_unconfirmed_transactions():
     result = blockchain.mine()
     if not result:
-        return "No transactions to mine"
+        return "No hay transacciones para minar."
     return "Block #{} is mined.".format(result)
 
 

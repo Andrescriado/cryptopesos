@@ -21,6 +21,11 @@
   
       <!-- Theme CSS - Includes Bootstrap -->
       <link href="/static/css/creative.min.css" rel="stylesheet">
+
+      <!--Favicon-->
+      <link rel="icon" 
+            type="image/png" 
+            href="/static/img/favicon.png">
   </head>
 
   <body id="page-top">
@@ -44,7 +49,7 @@
               <a class="nav-link js-scroll-trigger" href="#services">Transferir</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Tu Cuenta</a>
+              <a class="nav-link js-scroll-trigger" onclick="return popup(this, 'notes')" href="/credit">Tu Cuenta</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#portfolio">Blog</a>
@@ -70,14 +75,26 @@
       </div>
     </header>
   
+    <!--Test Pop up-->
+    <SCRIPT TYPE="text/javascript">
+      function popup(mylink, windowname) { 
+        if (! window.focus)return true;
+        var href;
+        if (typeof(mylink) == 'string') href="/credit";
+        else href=mylink.href; 
+        window.open(href, windowname, 'width=710,height=600,scrollbars=yes'); 
+        return false; 
+      }
+    </SCRIPT>
+
     <!-- About Section -->
     <section class="page-section bg-primary" id="about">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h2 class="text-white mt-0">Simplificamos tu economia</h2>
+            <h2 class="text-white mt-0">Simplificamos tu economía</h2>
             <hr class="divider light my-4">
-            <p class="text-white-50 mb-4">CryptoPesos tiene todo lo que necesitas para mejorar la velociadad, transparencia y operabilidad de tus transacciones! Nuestra plataforma trabaja las 24hrs del dia, 7 dias a la semana, los 365 dias del ano.</p>
+            <p class="text-white-50 mb-4">CryptoPesos tiene todo lo que necesitas para mejorar la velociadad, transparencia y operabilidad de tus transacciones! Nuestra plataforma trabaja las 24hrs del día, 7 días a la semana, los 365 días del año.</p>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Comienza a operar</a>
           </div>
         </div>
